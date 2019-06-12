@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>All Ninjas</title>
+</head>
+<body>
+    <h1>Welcome, {{ user['first_name']}} {{ user['last_name'] }}</h1>
+
+    <h1>These are all the ninjas:</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ninja in all_ninjas %}
+            <tr>
+                <td>{{ ninja['first_name'] }}</td>
+                <td>{{ ninja['last_name'] }}</td>
+                <td>{{ ninja['email'] }}</td>
+                <td>
+                    <a href="/ninjas/delete/{{ ninja['id'] }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/ninjas/new">New Ninja</a>
+</body>
+</html>
